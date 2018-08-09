@@ -132,7 +132,7 @@ def ensure_jupyterhub_service(prefix):
     systemd.install_unit('traefik.service', traefik_unit_template.format(**unit_params))
     systemd.reload_daemon()
 
-    # Set up proxy / hub secret oken if it is not already setup
+    # Set up proxy / hub secret token if it is not already setup
     proxy_secret_path = os.path.join(STATE_DIR, 'configurable-http-proxy.secret')
     if not os.path.exists(proxy_secret_path):
         with open(proxy_secret_path, 'w') as f:
@@ -320,8 +320,6 @@ def main():
     )
 
     args = argparser.parse_args()
-
-
 
     ensure_admins(args.admin)
 

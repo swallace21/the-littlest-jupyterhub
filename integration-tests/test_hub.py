@@ -1,7 +1,6 @@
 import requests
 from hubtraf.user import User
 from hubtraf.auth.dummy import login_dummy
-import secrets
 import pytest
 from functools import partial
 import asyncio
