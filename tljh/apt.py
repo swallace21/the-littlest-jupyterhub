@@ -34,6 +34,11 @@ def add_source(name, source_url, section):
             f.truncate()
             subprocess.check_output(['apt-get', 'update', '--yes'], stderr=subprocess.STDOUT)
 
+def add_source_curl(url):
+    """
+    Add a debian package source using curl and add script, especially useful for installing nodejs
+    """
+    os.system("curl -sL " + url + " | bash -")
 
 def install_packages(packages):
     """

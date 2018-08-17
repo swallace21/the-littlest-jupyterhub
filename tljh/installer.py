@@ -89,9 +89,10 @@ sckuXINIU3DFWzZGr0QrqkuE/jyr7FXeUJj9B7cLo+s/TXo+RaVfi3kOc9BoxIvy
 =CLGF
 -----END PGP PUBLIC KEY BLOCK-----
     """.strip()
-    #apt.trust_gpg_key(key)
+    apt.trust_gpg_key(key)
     #apt.add_source('nodesource', f'https://deb.nodesource.com/node_10.x', 'main')
-    #apt.install_packages(['nodejs'])
+    apt.add_source_curl(f'https://deb.nodesource.com/setup_10.x')
+    apt.install_packages(['nodejs'])
 
 
 def ensure_chp_package(prefix):
@@ -327,7 +328,7 @@ def main():
     ensure_user_environment(args.user_requirements_txt_url)
 
     logger.info("Setting up JupyterHub...")
-    #ensure_node() #sw90 - not needed
+    ensure_node()
     ensure_jupyterhub_package(HUB_ENV_PREFIX)
     ensure_chp_package(HUB_ENV_PREFIX)
     ensure_jupyterhub_service(HUB_ENV_PREFIX)
