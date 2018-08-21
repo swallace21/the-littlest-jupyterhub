@@ -21,6 +21,9 @@ class CustomSpawner(SystemdSpawner):
         system_username = self.user.name
         user.ensure_user(system_username)
 
+        # default directory when a user starts their server
+        self.notebook_dir = '/gpfs/main/sysvol/jupyterhub' + self.user.name
+
         # only allow certain users to access terminal through jupyterhub web interface
         if (self.user.name == 'dpotter'):
             self.default_shell = '/bin/bash'
