@@ -146,7 +146,8 @@ def update_user_environment(c, config):
 
 
 def update_user_account_config(c, config):
-    c.SystemdSpawner.username_template = 'jupyter-{USERNAME}'
+    #c.SystemdSpawner.username_template = 'jupyter-{USERNAME}'
+    c.SystemdSpawner.username_template = '{USERNAME}'
 
 
 def _merge_dictionaries(a, b, path=None, update=True):
