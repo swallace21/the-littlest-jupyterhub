@@ -8,7 +8,8 @@ After=network.target
 User=root
 Restart=always
 # process only needs to write state/acme.json file, no other files
-ProtectHome=tmpfs
+#ProtectHome=tmpfs #sw90 + dserpa - not present in debian 
+ProtectHome=/temp
 ProtectSystem=strict
 PrivateTmp=yes
 PrivateDevices=yes
