@@ -22,7 +22,7 @@ class CustomSpawner(SystemdSpawner):
         user.ensure_user(system_username)
 
         # default directory when a user starts their server
-        notebook_default_dir = '/gpfs/main/sys/jupyterhub/'
+        notebook_default_dir = '/sysvol/jupyterhub/'
         
         # only allow certain users to access terminal through jupyterhub web interface
         if (self.user.name == 'dpotter'):
@@ -31,8 +31,6 @@ class CustomSpawner(SystemdSpawner):
         else:
             self.default_shell = '/bin/false'
             self.notebook_dir = notebook_default_dir + self.user.name
-
-        print('user is admin : ' + user.ensure_user_group(system_username, 'jupyterhub-admins'))
 
         user.ensure_user_group(system_username, 'jupyterhub-users')
         if self.user.admin:
