@@ -35,11 +35,11 @@ default = {
         'port': 80,
     },
     'https': {
-        'enabled': True,
+        'enabled': False,
         'port': 443,
         'tls': {
-            'cert': '/etc/ssl/certs/jupyterhub.cer',
-            'key': '/etc/ssl/certs/jupyterhub.key',
+            'cert': '',
+            'key': '',
         },
         'letsencrypt': {
             'email': '',

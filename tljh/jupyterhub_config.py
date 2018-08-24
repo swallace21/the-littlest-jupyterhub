@@ -44,14 +44,15 @@ c.JupyterHub.spawner_class = CustomSpawner
 # Use a high port so users can try this on machines with a JupyterHub already present
 c.JupyterHub.hub_port = 15001
 
-c.ConfigurableHTTPProxy.should_start = False
-c.ConfigurableHTTPProxy.api_url = 'http://127.0.0.1:15002'
+#c.ConfigurableHTTPProxy.should_start = False
+#c.ConfigurableHTTPProxy.api_url = 'http://127.0.0.1:15002'
 
 c.SystemdSpawner.extra_paths = [os.path.join(USER_ENV_PREFIX, 'bin')]
 # c.SystemdSpawner.default_shell = '/bin/bash' #sw90 - now done per spawn
 # Drop the '-singleuser' suffix present in the default template
 #c.SystemdSpawner.unit_name_template = 'jupyter-{USERNAME}'
 c.SystemdSpawner.unit_name_template = '{USERNAME}'
+
 
 config_overrides_path = os.path.join(INSTALL_PREFIX, 'config.yaml')
 if os.path.exists(config_overrides_path):
@@ -66,3 +67,7 @@ configurer.apply_config(config_overrides, c)
 extra_configs = sorted(glob(os.path.join(INSTALL_PREFIX, 'jupyterhub_config.d', '*.py')))
 for ec in extra_configs:
     load_subconfig(ec)
+
+# HTTPS Config
+c.JupyterHub.ssl_key = '/etc/ssl/certs/jupyterhub.key'
+c.JupyterHub.ssl_cert = '/etc/ssl/certs/jupyterhub.cert'
