@@ -70,4 +70,4 @@ for ec in extra_configs:
 
 # HTTPS Config
 c.JupyterHub.ssl_key = '/etc/ssl/certs/jupyterhub.key'
-c.JupyterHub.ssl_cert = '/etc/ssl/certs/jupyterhub.cert'
+c.JupyterHub.ssl_cert = '/etc/ssl/certs/jupyterhub.cer'
