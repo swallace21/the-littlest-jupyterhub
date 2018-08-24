@@ -44,8 +44,8 @@ c.JupyterHub.spawner_class = CustomSpawner
 # Use a high port so users can try this on machines with a JupyterHub already present
 c.JupyterHub.hub_port = 15001
 
-#c.ConfigurableHTTPProxy.should_start = False
-#c.ConfigurableHTTPProxy.api_url = 'http://127.0.0.1:15002'
+c.ConfigurableHTTPProxy.should_start = False
+c.ConfigurableHTTPProxy.api_url = 'http://127.0.0.1:15002'
 
 c.SystemdSpawner.extra_paths = [os.path.join(USER_ENV_PREFIX, 'bin')]
 # c.SystemdSpawner.default_shell = '/bin/bash' #sw90 - now done per spawn
