@@ -28,7 +28,7 @@ class CustomSpawner(SystemdSpawner):
         if (self.user.name == 'dpotter' or self.user.name == 'sw90' or self.user.name == 'dserpa'):
             self.default_shell = '/bin/bash'
             self.notebook_dir = notebook_default_dir
-        elif (or self.user.name == 'lzhu7'):
+        elif (self.user.name == 'lzhu7'):
             self.default_shell = '/bin/false'
             self.notebook_dir = notebook_default_dir
         else:
