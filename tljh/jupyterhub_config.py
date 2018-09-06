@@ -25,8 +25,11 @@ class CustomSpawner(SystemdSpawner):
         notebook_default_dir = '/sysvol/jupyterhub/'
         
         # only allow certain users to access terminal through jupyterhub web interface
-        if (self.user.name == 'dpotter'):
+        if (self.user.name == 'dpotter' or self.user.name == 'sw90' or self.user.name == 'dserpa'):
             self.default_shell = '/bin/bash'
+            self.notebook_dir = notebook_default_dir
+        elif (or self.user.name == 'lzhu7'):
+            self.default_shell = '/bin/false'
             self.notebook_dir = notebook_default_dir
         else:
             self.default_shell = '/bin/false'
